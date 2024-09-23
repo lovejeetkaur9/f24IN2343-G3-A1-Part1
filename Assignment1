@@ -1,0 +1,145 @@
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.LinkedList;
+import java.util.Queue;
+import java.util.Stack;
+
+// OOP Example: Animal Hierarchy
+class Animal {
+    private String name;
+    private int age;
+
+    public Animal(String name, int age) {
+        this.name = name;
+        this.age = age;
+    }
+
+    public void makeSound() {
+        System.out.println("Generic animal sound");
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public int getAge() {
+        return age;
+    }
+}
+
+class Dog extends Animal {
+    public Dog(String name, int age) {
+        super(name, age);
+    }
+
+    @Override
+    public void makeSound() {
+        System.out.println("Woof!");
+    }
+}
+
+class Cat extends Animal {
+    public Cat(String name, int age) {
+        super(name, age);
+    }
+
+    @Override
+    public void makeSound() {
+        System.out.println("Meow!");
+    }
+}
+
+// Data Structures Example
+class DataStructures {
+    public static void main(String[] args) {
+        // Arrays
+        int[] scores = {90, 80, 70, 60};
+        System.out.println("Array scores: " + scores[0]);
+
+        // Linked List
+        LinkedList<String> colors = new LinkedList<>();
+        colors.add("Red");
+        colors.add("Green");
+        colors.add("Blue");
+        System.out.println("Linked List colors: " + colors.get(0));
+
+        // Stack
+        Stack<Integer> stack = new Stack<>();
+        stack.push(1);
+        stack.push(2);
+        stack.push(3);
+        System.out.println("Stack top: " + stack.pop());
+
+        // Queue
+        Queue<String> queue = new LinkedList<>();
+        queue.add("Apple");
+        queue.add("Banana");
+        queue.add("Cherry");
+        System.out.println("Queue front: " + queue.poll());
+
+        // Hash Table
+        HashMap<String, Integer> ages = new HashMap<>();
+        ages.put("John", 25);
+        ages.put("Jane", 30);
+        System.out.println("Hash Table ages: " + ages.get("John"));
+
+        // Tree (Binary Tree)
+        class Node {
+            int value;
+            Node left;
+            Node right;
+
+            public Node(int value) {
+                this.value = value;
+            }
+        }
+
+        Node root = new Node(1);
+        root.left = new Node(2);
+        root.right = new Node(3);
+        System.out.println("Binary Tree root: " + root.value);
+    }
+}
+
+// Exception Handling Example
+class ExceptionHandling {
+    public static void main(String[] args) {
+        try {
+            int result = divide(10, 0);
+            System.out.println("Result: " + result);
+        } catch (ArithmeticException e) {
+            System.out.println("Caught ArithmeticException: " + e.getMessage());
+        } finally {
+            System.out.println("Finally block executed");
+        }
+    }
+
+    public static int divide(int a, int b) throws ArithmeticException {
+        if (b == 0) {
+            throw new ArithmeticException("Cannot divide by zero!");
+        }
+        return a / b;
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        // OOP Example
+        Animal animal = new Animal("Generic Animal", 5);
+        Dog dog = new Dog("Buddy", 3);
+        Cat cat = new Cat("Whiskers", 2);
+
+        animal.makeSound(); // Output: Generic animal sound
+        dog.makeSound();     // Output: Woof!
+        cat.makeSound();     // Output: Meow!
+
+        System.out.println(dog.getName() + " is " + dog.getAge() + " years old.");
+
+        // Data Structures Example
+        DataStructures.main(args);
+
+        // Exception Handling Example
+        ExceptionHandling.main(args);
+    }
+}
